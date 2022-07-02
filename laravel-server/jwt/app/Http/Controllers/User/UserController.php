@@ -22,4 +22,18 @@ class UserController extends Controller
             "places" => $places
         ], 200);
     }
+
+    // Function to get places by category
+    public function getCategory($category = null){
+        if($category != null){
+            $items = Category::where('category_name','=',$category)->get();
+        }else{
+            $items = Category::all();    
+        }
+
+        return response()->json([
+            "status" => "Success",
+            "results" => $items
+        ], 200);
+    }
 }
