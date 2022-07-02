@@ -23,7 +23,7 @@ class UserController extends Controller
         ], 200);
     }
 
-    // Function to get places by category
+    // Function to get categories with optional parameter(category name)
     public function getCategory($category = null){
         if($category != null){
             $items = Category::where('category_name','=',$category)->get();
@@ -31,6 +31,16 @@ class UserController extends Controller
             $items = Category::all();    
         }
 
+        return response()->json([
+            "status" => "Success",
+            "results" => $items
+        ], 200);
+    }
+
+    // Function to get place by category
+    public function getPlaceByCategory($category){
+        $items = Place::where('place_category','=',$category)->get();
+      
         return response()->json([
             "status" => "Success",
             "results" => $items

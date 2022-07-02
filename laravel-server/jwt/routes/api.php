@@ -23,6 +23,8 @@ Route::group(['prefix' => 'v1'], function(){
     Route::group(['prefix' => 'user'], function(){
         Route::get('/get_place/{id?}', [UserController::class, 'getPlace']);
         Route::get('/get_category/{category?}', [UserController::class, 'getCategory']);
+        Route::get('/place_by_category/{category}', [UserController::class, 'getPlaceByCategory']);
+
     });
 
 });
