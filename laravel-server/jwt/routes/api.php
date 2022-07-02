@@ -6,6 +6,7 @@ use App\Http\Controllers\JWTController;
 
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\User\UserController;
 
 Route::group(['prefix' => 'v1'], function(){
     
@@ -18,6 +19,11 @@ Route::group(['prefix' => 'v1'], function(){
             Route::post('/add_category', [AdminController::class, 'addCategory']);
         });    
     });
+
+    Route::group(['prefix' => 'user'], function(){
+        Route::get('/get_place/{id?}', [UserController::class, 'getPlace']);
+    });
+
 });
 
 
