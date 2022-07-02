@@ -14,6 +14,7 @@ Route::group(['prefix' => 'v1'], function(){
 
     Route::group(['prefix' => 'admin'], function(){
         Route::post('/add_place', [AdminController::class, 'addPlace']);
+        Route::post('/add_category', [AdminController::class, 'addCategory']);
     });
 });
 
