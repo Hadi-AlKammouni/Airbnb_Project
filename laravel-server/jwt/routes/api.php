@@ -13,8 +13,10 @@ Route::group(['prefix' => 'v1'], function(){
     Route::get('/not_found', [TestController::class, 'notFound'])->name("not-found");
 
     Route::group(['prefix' => 'admin'], function(){
-        Route::post('/add_place', [AdminController::class, 'addPlace']);
-        Route::post('/add_category', [AdminController::class, 'addCategory']);
+        Route::group(['middleware' => 'role.admin'], function(){
+            Route::post('/add_place', [AdminController::class, 'addPlace']);
+            Route::post('/add_category', [AdminController::class, 'addCategory']);
+        });    
     });
 });
 
