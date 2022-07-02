@@ -5,11 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
 
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\Admin\AdminController;
 
 Route::group(['prefix' => 'v1'], function(){
     
     // Function called when not an "Unauthorized" user tried to reach a specific page
     Route::get('/not_found', [TestController::class, 'notFound'])->name("not-found");
+
+    Route::group(['prefix' => 'admin'], function(){
+        Route::post('/add_place', [AdminController::class, 'addPlace']);
+    });
 });
 
 
