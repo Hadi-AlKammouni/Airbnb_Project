@@ -12,14 +12,14 @@ class UserController extends Controller
     // Function to get all the places with optional parameter(id)
     public function getPlace($id = null){
         if($id != null){
-            $plaecs = Place::where('id','=',$id)->get();
+            $places = Place::where('place_id','=',$id)->get();
         }else{
-            $plaecs = Place::all();    
+            $places = Place::all();    
         }
 
         return response()->json([
             "status" => "Success",
-            "plaecs" => $plaecs
+            "places" => $places
         ], 200);
     }
 }
