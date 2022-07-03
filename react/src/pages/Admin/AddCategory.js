@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Input from "../../components/Input";
+import Image from "../../components/Image";
 
 const AddCategory = () => {
 
@@ -26,26 +27,12 @@ const AddCategory = () => {
         }
     };
 
-    //Convert the uploaded image into base 64
-    let base64String="";
-    const imageUploaded = async () => {
-        var file = document.querySelector('input[type=file]')['files'][0];
-        var reader = new FileReader();
-        reader.onload = function () {
-            base64String = reader.result;
-            var disp=document.getElementById('display');
-            disp.innerHTML='';
-            disp.innerHTML=`<img src="`+base64String+`">`
-        }
-        reader.readAsDataURL(file); 
-    }
-
     // Initialize Input State
     const [category_name, setName] = useState("");
+    const [images, setImage] = useState("");
 
     //Add data to Backend on Submit
     const onSubmit = (e) => {
-        let images = base64String;
         e.preventDefault();
         if ( !category_name || !images ) {
             alert("Please fill all fields!");
@@ -54,6 +41,7 @@ const AddCategory = () => {
         
         submitCategory({category_name, images})
         setName("");
+        setImage("");
     };
 
     return (
@@ -61,15 +49,7 @@ const AddCategory = () => {
 
         <Input type={"text"} placeholder={"Insert Name"} label={"Category Name"} set={setName} />
         
-        <div className="uploadpic">
-            <div>
-                <div><label htmlFor="fileId"></label></div>
-                <div><input type="file" name="photo" id="fileId" onChange={imageUploaded}/></div>
-                <div className="upload" id="upload">
-                    <div id="display"></div>
-                </div>   
-            </div>
-        </div>  
+        <Image set={setImage} />
 
         <input type={"submit"} value="Create Category" className="btn btn-block" />
 
