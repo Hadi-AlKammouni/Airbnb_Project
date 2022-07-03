@@ -23,7 +23,7 @@ class CreatePlacesTable extends Migration
             $table->string('place_description');
             $table->mediumtext('images');
             $table->string('place_category');
-            $table->string('place_rating');
+            $table->string('place_rating')->nullable();
             $table->timestamps();
         });
     }
