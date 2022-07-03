@@ -59,12 +59,8 @@ const AddCategory = () => {
     return (
       <form className="add-form" onSubmit={onSubmit}>
 
-        <div className="form-control">
-        <label>Category Name</label>
-        <Input type={"text"} placeholder={"Insert Name"} set={setName} />
-        </div>
-
-
+        <Input type={"text"} placeholder={"Insert Name"} label={"Category Name"} set={setName} />
+        
         <div className="uploadpic">
             <div>
                 <div><label htmlFor="fileId"></label></div>

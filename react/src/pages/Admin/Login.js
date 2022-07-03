@@ -51,15 +51,9 @@ const Login = () => {
     return (
       <form className="add-form" onSubmit={onSubmit}>
 
-        <div className="form-control">
-          <label>Email</label>
-          <Input type={"email"} placeholder={"Insert Email"} set={setEmail} />
-        </div>
-  
-        <div className="form-control">
-          <label>Password</label>
-          <Input type={"password"} placeholder={"Insert Password"} set={setPassword} />
-        </div>
+        <Input type={"email"} placeholder={"Insert Email"} label={"Email"} set={setEmail} />
+
+        <Input type={"password"} placeholder={"Insert Password"} label={"Password"} set={setPassword} />
         
         <input type={"submit"} value="Login" className="btn btn-block" />
 
