@@ -3,6 +3,31 @@ import Input from "../../components/Input";
 
 const Login = () => {
 
+    //Calling login api upon submitting login info
+    const submitLogin = async (info) => {
+        const res = await fetch("http://localhost:8000/api/login",{
+            method: "POST",
+            headers:{
+                "Content-Type" : "application/json",
+            },
+            body: JSON.stringify(info)
+        });
+
+        const data = await res.json();
+
+        if (data.error === "Unauthorized"){
+            window.location.reload ();
+            alert(data.error);
+        }else{
+            localStorage.setItem("token",data.access_token);
+            localStorage.setItem("user_id",data.user_id);
+            localStorage.setItem("user_name",data.name);
+            alert("You logged in successfully ✅");
+            window.location.reload ();
+            return data;
+        }
+    };
+
     // Initialize Input State
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -18,6 +43,9 @@ const Login = () => {
         alert("password must be at least 6 characters!");
         return;
       }
+      submitLogin({ email, password });
+      setEmail("");
+      setPassword("");
     };
 
     return (
