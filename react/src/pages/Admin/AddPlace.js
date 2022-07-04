@@ -2,8 +2,10 @@ import { useState } from "react";
 import Input from "../../components/Input";
 import Image from "../../components/Image";
 import Select from "../../components/Select";
+import { useNavigate } from "react-router-dom";
 
 const AddPlace = () => {
+    const navigate = useNavigate();
 
     let token = localStorage.getItem("token");
 
@@ -21,7 +23,7 @@ const AddPlace = () => {
 
             const data = await res.json();
             alert("Place has been added successfully ✅");
-            window.location.reload ();
+            navigate("/")
             return data;
         } catch (error){
             console.log(error)

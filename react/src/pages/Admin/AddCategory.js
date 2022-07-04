@@ -23,7 +23,7 @@ const AddCategory = () => {
 
             const data = await res.json();
             alert("Category has been added successfully ✅");
-            window.location.reload ();
+            navigate("/")
             return data;
         } catch (error){
             console.log(error)
