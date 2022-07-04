@@ -1,0 +1,36 @@
+/* CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.top-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 140px;
+  border-bottom: 2px solid white;
+  margin-bottom: 40px;
+}
+
+.logo-btn{
+  width: 180px;
+  background-color: crimson;
+  /* height: 30px; */
+  width: fit-content;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.logo-btn:hover{
+  cursor: pointer;
+  background-color: rgb(229, 62, 96);
+}
+
+.logo-btn:active{
+  transform: scale(0.9);
+}
