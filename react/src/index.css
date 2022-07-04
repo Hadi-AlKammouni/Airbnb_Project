@@ -34,3 +34,24 @@
 .logo-btn:active{
   transform: scale(0.9);
 }
+
+.buttom-navbar{
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.category-img{
+  width: 50%;
+  opacity: 0.7;
+}
+
+.category-img:hover{
+  opacity: 1;
+  cursor: pointer;
+  border-bottom-style: solid;
+}
+
+.category-para{
+  justify-content: center;
+}
