@@ -55,3 +55,20 @@
 .category-para{
   justify-content: center;
 }
+
+.places{
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.places > div{
+  padding: 10px;
+}
+
+.place-img{
+  width: 350px;
+  height: 300px;
+  border-radius: 15px;
+}
