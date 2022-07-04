@@ -3,11 +3,13 @@ import AddCategory from "./pages/Admin/AddCategory";
 import AddPlace from "./pages/Admin/AddPlace";
 import Login from "./pages/Admin/Login";
 import TopNavbar from "./components/TopNavbar";
+import ButtomNavbar from "./components/ButtomNavbar";
 
 function App() {
   return (
     <BrowserRouter>
     <TopNavbar/>
+    <ButtomNavbar/>
       <Routes>
         <Route path="admin/Login" element={<Login/>}></Route>
         <Route path="admin/AddCategory" element={<AddCategory/>}></Route>
