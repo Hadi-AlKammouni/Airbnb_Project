@@ -3,15 +3,6 @@ import {useState,useEffect} from "react";
 const ViewPlaces = () => {
 
     const [places, setPlaces] = useState([]);
-    // const [place_name, setPlaceName] = useState([]);
-    // const [place_location, setPlaceLocation] = useState([]);
-    // const [place_distance, setPlaceDistance] = useState([]);
-    // const [place_date, setPlaceDate] = useState([]);
-    // const [place_price, setPlacePrice] = useState([]);
-    // const [place_description, setPlaceDescription] = useState([]);
-    // const [images, setImages] = useState([]);
-    // const [place_category, setPlaceCategory] = useState([]);
-
 
     const getPlaces = async () => {
           const res = await fetch("http://127.0.0.1:8000/api/v1/user/get_place",{

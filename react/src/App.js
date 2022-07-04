@@ -15,7 +15,7 @@ function App() {
         <Route path="admin/Login" element={<Login/>}></Route>
         <Route path="admin/AddCategory" element={<AddCategory/>}></Route>
         <Route path="admin/AddPlace" element={<AddPlace/>}></Route>
-        <Route path="guest/ViewPlaces" element={<ViewPlaces/>}></Route>
+        <Route path="" element={<ViewPlaces/>}></Route>
       </Routes>
     </BrowserRouter>
   );
