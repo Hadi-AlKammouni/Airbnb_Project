@@ -1,7 +1,10 @@
 import { useState } from "react";
 import Input from "../../components/Input";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
+    const navigate = useNavigate();
 
     //Calling login api upon submitting login info
     const submitLogin = async (info) => {
@@ -16,14 +19,14 @@ const Login = () => {
         const data = await res.json();
 
         if (data.error === "Unauthorized"){
-            window.location.reload ();
+            navigate("/")
             alert(data.error);
         }else{
             localStorage.setItem("token",data.access_token);
             localStorage.setItem("user_id",data.user_id);
             localStorage.setItem("user_name",data.name);
             alert("You logged in successfully ✅");
-            window.location.reload ();
+            navigate("/admin/AddCategory")
             return data;
         }
     };

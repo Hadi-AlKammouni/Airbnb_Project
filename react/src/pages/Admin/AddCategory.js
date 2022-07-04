@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Input from "../../components/Input";
 import Image from "../../components/Image";
+import { useNavigate } from "react-router-dom";
 
 const AddCategory = () => {
+
+    const navigate = useNavigate();
 
     let token = localStorage.getItem("token");
 
@@ -52,8 +55,13 @@ const AddCategory = () => {
         <Image set={setImage} />
 
         <input type={"submit"} value="Create Category" className="btn btn-block" />
+        <input type={"button"} value="Add Place" className="btn btn-block" onClick={() => {
+              navigate("/admin/AddPlace");
+            }}/>
 
       </form>
+
+      
     );
 };
 
